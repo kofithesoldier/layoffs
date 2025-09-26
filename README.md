@@ -52,7 +52,7 @@ This project focuses on cleaning, transforming, and analyzing a layoffs dataset 
 
 ## Database Setup
 
-**1**. Create a database:
+ # Create a database:
 ```sql
    CREATE DATABASE layoffsDB;
 GO
@@ -83,4 +83,19 @@ SELECT *
 FROM layoffs;
 ```
 Purpose: The staging table allows safe data cleaning and transformation without altering the original dataset.
+
+# Data Cleaning
+**1. Remove Duplicate Rows**
+```sql
+WITH CTE AS (
+    SELECT *,
+           ROW_NUMBER() OVER (
+               PARTITION BY company, location, industry, total_laid_off, percentage_laid_off, [date], stage, country, funds_raised_millions
+               ORDER BY [date]
+           ) AS row_num
+    FROM dbo.layoffs_staging
+)
+DELETE FROM CTE WHERE row_num > 1;
+```
+Purpose: Keep only unique rows.
 
