@@ -80,9 +80,8 @@ WITH CTE AS (
     FROM dbo.layoffs_staging
 )
 DELETE FROM CTE WHERE row_num > 1;
-```
 Purpose: Keep only unique rows.
-
+```
 **2.Handle Nulls in Text Columns**
 ```sql
 UPDATE s
@@ -96,7 +95,9 @@ JOIN (
 ) t
 ON s.company = t.company
 WHERE s.industry IS NULL;
-```
+
 Purpose: Fill missing industry values from other rows of the same company.
+```
+
 
 
