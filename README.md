@@ -48,25 +48,28 @@ GO
 ```
  **Staging Table Creation**
 Instead of manually defining the table, a staging table was created from the original table using SELECT INTO:
--- Create an empty staging table with the same structure as the original
+
 ```sql
+Create an empty staging table with the same structure as the original
 SELECT TOP 0 *
 INTO dbo.layoffs_staging
 FROM layoffs;
-``
+```
 
--- Verify table creation
 ```sql
+Verify table creation
 SELECT * FROM layoffs_staging;
 ```
 
--- Copy all data into the staging table
 ```sql
+ Copy all data into the staging table
 INSERT INTO layoffs_staging
 SELECT *
 FROM layoffs;
-```
+
 Purpose: The staging table allows safe data cleaning and transformation without altering the original dataset.
+```
+
 
  ## Data Cleaning
 **1. Remove Duplicate Rows**
@@ -80,6 +83,7 @@ WITH CTE AS (
     FROM dbo.layoffs_staging
 )
 DELETE FROM CTE WHERE row_num > 1;
+
 Purpose: Keep only unique rows.
 ```
 **2.Handle Nulls in Text Columns**
