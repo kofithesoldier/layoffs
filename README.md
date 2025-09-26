@@ -37,6 +37,7 @@ This project focuses on cleaning, transforming, and analyzing a layoffs dataset 
   The dataset contains the following columns:
 
   | Column                  | Description                      |
+  
 | ----------------------- | -------------------------------- |
 | `company`               | Company name                     |
 | `location`              | City or region of the company    |
