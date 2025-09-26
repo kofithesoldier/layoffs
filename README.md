@@ -7,7 +7,7 @@ This project focuses on cleaning, transforming, and analyzing a layoffs dataset 
 
 # Project Highlights
 
- * Imported a messy Excel dataset into SQL Server.
+ * Imported a messy Excel dataset into SQL Server. 
 
 * Created a staging table using SQL (SELECT INTO) to safely clean data.
 
