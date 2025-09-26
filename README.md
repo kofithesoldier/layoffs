@@ -38,6 +38,7 @@ This project focuses on cleaning, transforming, and analyzing a layoffs dataset 
 
   | Column                  | Description                      |
   
+  
 | ----------------------- | -------------------------------- |
 | `company`               | Company name                     |
 | `location`              | City or region of the company    |
