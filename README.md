@@ -36,9 +36,9 @@ This project focuses on cleaning, transforming, and analyzing a layoffs dataset 
   ## Dataset
   The dataset contains the following columns:
 
-  | Column                  | Description                      |
-  
-  
+|Column                  | Description                      |
+|                        |
+|                         |
 | ----------------------- | -------------------------------- |
 | `company`               | Company name                     |
 | `location`              | City or region of the company    |
@@ -100,7 +100,7 @@ DELETE FROM CTE WHERE row_num > 1;
 Purpose: Keep only unique rows.
 
 **2.Handle Nulls in Text Columns**
-``sql
+```sql
 UPDATE s
 SET s.industry = t.industry
 FROM dbo.layoffs_staging s
