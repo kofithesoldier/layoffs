@@ -33,22 +33,6 @@ This project focuses on cleaning, transforming, and analyzing a layoffs dataset 
 
 * Problem-solving and exploratory data analysis (EDA).
 
-  ## Dataset
-  The dataset contains the following columns:
-
-|Column                  | Description                      |
-|                        |
-|                         |
-| ----------------------- | -------------------------------- |
-| `company`               | Company name                     |
-| `location`              | City or region of the company    |
-| `industry`              | Industry sector                  |
-| `total_laid_off`        | Number of employees laid off     |
-| `percentage_laid_off`   | Percentage of workforce laid off |
-| `date`                  | Date of layoff event             |
-| `stage`                 | Stage of reporting               |
-| `country`               | Country of the company           |
-| `funds_raised_millions` | Total funds raised in millions   |
 
 ## Database Setup
 
