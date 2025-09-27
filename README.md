@@ -407,5 +407,15 @@ WHERE layoff_rank <= 5;
 
 * Serve as a portfolio project demonstrating SQL and data analysis skills.
 
+## Author - Kofi Obeng Nti
+This project is part of my portfolio, showcasing the SQL skills essential for data analyst roles.
+
+## Appreciation
+Thank you for taking time to read! I hope you found this project helpful and easy to follow .If you have any questions, suggestions, feedback or would like to collaborate ,feel free to open an issue or reach out- I'd love to hear from you!
+
+## Connect with Me
+**Email:** kofiobengnti@gmail.com
+**Linkedin:** www.linkedin.com/in/kofi-obeng-nti-aa3884140
+
 
 
