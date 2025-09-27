@@ -48,6 +48,7 @@ GO
 GO
 ```
  **Staging Table Creation**
+ 
 Instead of manually defining the table, a staging table was created from the original table using SELECT INTO:
 
 ```sql
@@ -158,7 +159,7 @@ select * from layoffs_staging;
 ```
 **Cleaning Numeric Columns**
 
-Left nulls in numeric columns (total_laid_off, percentage_laid_off, funds_raised_millions) as-is for analysis purposes.
+I cleaned the numeric columns remove and coverted the data types to the correct or right data types and decided to leave nulls in numeric columns (total_laid_off, percentage_laid_off, funds_raised_millions) as-is for analysis purposes.
 
 ```sql
 UPDATE dbo.layoffs_staging
@@ -278,7 +279,7 @@ group by company
 order by 2 desc;
 ```
 
-**Q.4.Which month (ignoring year) saw the highest total layoffs across all companies?**
+**Q.4. Which month (ignoring year) saw the highest total layoffs across all companies?**
 ```sql
 select * from layoffs_staging;
 
@@ -313,7 +314,7 @@ order by 2 desc;
 
 # Advanced EDA #
 
-**Q.1. Which company had the single largest layoff event (highest total_laid_off in one row)?
+**Q.1. Which company had the single largest layoff event (highest total_laid_off in one row)?**
 ```sql
 select * from layoffs_staging;
 
@@ -322,7 +323,7 @@ from layoffs_staging
 order by total_laid_off desc;
 ```
 
-**Q.2. Which  5 companies have a high number of layoffs relative to the funds they raised?
+**Q.2. Which  5 companies have a high number of layoffs relative to the funds they raised?**
 ```sql
 SELECT TOP 5
        company,
