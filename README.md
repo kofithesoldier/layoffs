@@ -159,7 +159,7 @@ select * from layoffs_staging;
 ```
 **Cleaning Numeric Columns**
 
-I cleaned the numeric columns remove and coverted the data types to the correct or right data types and decided to leave nulls in numeric columns (total_laid_off, percentage_laid_off, funds_raised_millions) as-is for analysis purposes.
+I cleaned the numeric columns(by removing commas,$ and % signs ) , coverted the data types to the correct or right data types and decided to leave nulls in numeric columns (total_laid_off, percentage_laid_off, funds_raised_millions) as-is for analysis purposes.
 
 ```sql
 UPDATE dbo.layoffs_staging
@@ -416,6 +416,7 @@ Thank you for taking time to read! I hope you found this project helpful and eas
 
 ## Connect with Me
 **Email:** kofiobengnti@gmail.com
+
 **Linkedin:** www.linkedin.com/in/kofi-obeng-nti-aa3884140
 
 
