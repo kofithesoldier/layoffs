@@ -5,25 +5,6 @@ End-to-end SQL project for cleaning, transforming, and analyzing a company layof
 ## Project Overview
 This project focuses on cleaning, transforming, and analyzing a layoffs dataset imported from Excel into SQL Server. The dataset contains layoffs information for multiple companies, and the goal is to prepare a clean, structured, and insightful dataset for exploratory data analysis (EDA) and reporting.
 
-## Repository Structure
-
-layoffs-data-analysis/
-│
-├── README.md                  # Project documentation
-├── data/
-│   ├── layoffs.xlsx           # Original Excel dataset
-├── sql/
-│   ├── create_staging.sql     # SQL to create staging table
-│   ├── data_cleaning.sql      # Queries for duplicates, null handling, and cleaning
-│   ├── basic_eda.sql          # Basic EDA queries
-│   ├── intermediate_eda.sql   # Intermediate EDA queries
-│   ├── advanced_eda.sql       # Advanced EDA queries with RANK, ROW_NUMBER
-│   └── final_analysis.sql     # Top findings and reports
-├── reports/
-│   ├── findings_summary.md    # Summary of insights
-│   └── visualization_mockups/ # Optional visualizations
-└── LICENSE
-
 
 # Project Highlights
 
@@ -92,7 +73,7 @@ Purpose: The staging table allows safe data cleaning and transformation without 
 
 
  ## Data Cleaning
-**1. Remove Duplicate Rows**
+**Remove Duplicate Rows**
 ```sql
 WITH CTE AS (
     SELECT *,
@@ -107,6 +88,7 @@ DELETE FROM CTE WHERE row_num > 1;
 Purpose: Keep only unique rows.
 ```
 **Handle Nulls in Text Columns**
+
 ```sql
 UPDATE s
 SET s.industry = t.industry
@@ -153,8 +135,10 @@ WHERE industry like '%CRYPTO%';
 ```
 
 **Handle Dates**
+
 Standardized all dates to SQL-recognized formats.
 Invalid or null dates can be handled by creating a temporary column, cleaning it, and updating the main date column.
+
 ```sql
 Added a new column named cleaned_date
 alter table layoffs_staging
@@ -173,7 +157,9 @@ Exec sp_rename 'dbo.layoffs_staging.cleaned_date', 'date','column';
 select * from layoffs_staging;
 ```
 **Cleaning Numeric Columns**
+
 Left nulls in numeric columns (total_laid_off, percentage_laid_off, funds_raised_millions) as-is for analysis purposes.
+
 ```sql
 UPDATE dbo.layoffs_staging
 SET total_laid_off = TRY_CONVERT(INT, REPLACE(total_laid_off, ',', ''))
@@ -199,15 +185,16 @@ FROM dbo.layoffs_staging;
 ```
 
 **Q.2. What is the total number of layoffs (total_laid_off) in the dataset, and what is the average number of layoffs per company?**
+
 ```sql
 SELECT * FROM layoffs_staging;
 
---the total number of layoffs (total_laid_off) in the dataset
+the total number of layoffs (total_laid_off) in the dataset
 SELECT SUM(total_laid_off) AS total_layoffs
 FROM layoffs_staging;
 
 
---the average number of layoffs per company
+the average number of layoffs per company
 SELECT AVG(total_laid_off_per_company) AS avg_layoffs_per_company
 FROM (
     SELECT company, SUM(total_laid_off) AS total_laid_off_per_company
@@ -418,7 +405,7 @@ WHERE layoff_rank <= 5;
 
 * Combine with funding or financial data for predictive insights.
 
-*Serve as a portfolio project demonstrating SQL and data analysis skills.
+* Serve as a portfolio project demonstrating SQL and data analysis skills.
 
 
 
